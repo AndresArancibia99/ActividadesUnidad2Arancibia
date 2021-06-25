@@ -1,0 +1,63 @@
+<p>bootstrap-directivas works!</p>
+
+<h4> Directiva NgFor</h4>
+<br>
+<ul>
+    <li *ngFor="let persona of gente" class="text-primary">
+        {{persona.nombre}}
+    </li>
+</ul>
+<br>
+<ul *ngFor="let grupo of gentePorCiudad" class="text-primary">
+    <li >
+        {{grupo.ciudad}}
+    </li>
+    <ul>
+        <li *ngFor="let persona of grupo.gente">
+        {{ persona.nombre }}</li>
+    </ul>
+</ul>
+<br>
+<hr>
+<ul *ngFor="let persona of gente">
+    <li *ngIf="persona.edad>30">
+        {{persona.nombre}} - {{persona.edad}} 
+    </li>
+</ul>
+<br>
+<hr>
+<ul *ngFor="let persona of gente">
+    <li *ngIf="persona.pais=='chile'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngIf="persona.pais=='ecuador'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngIf="persona.pais=='españa'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngIf="persona.pais=='italia'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngIf="persona.pais=='colombia'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+</ul>
+
+<br>
+<hr>
+<h4> NG switch</h4>
+<ul *ngFor="let persona of gente "[ngSwitch]="persona.pais">
+    <li *ngSwitchCase="'chile'" class="text-success">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngSwitchCase="'colombia'" class="text-danger">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngSwitchCase="'italia'" class="text-warning">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+    <li *ngSwitchCase="'peru'" class="text-primary">
+        {{persona.nombre}} - {{persona.pais}}
+    </li>
+</ul>
